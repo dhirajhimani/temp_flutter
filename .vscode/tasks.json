@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Flutter integration tests",
+            "type": "shell",
+            "command": "fvm flutter test integration_test/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Flutter integration tests - web (not supported yet)",
+            "type": "shell",
+            "command": "chromedriver --port=4444 &; flutter test integration_test/ -d web-server",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "type": "flutter",
+            "command": "flutter",
+            "args": [
+                "build",
+                "web",
+                "--base-href=/actingweb_firstapp_web/"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "label": "flutter: flutter build web",
+            "detail": ""
+        }
+    ]
+}
